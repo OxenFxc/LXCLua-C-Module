@@ -39,10 +39,9 @@ static const luaL_Reg lxc_functions[] = {
 };
 __attribute__((visibility("default")))
 int luaopen_mysample(lua_State *L) {
-    // 关键修复：先创建一个新表，作为模块的载体
+
     luaL_newlib(L, lxc_functions);
 
-    // 往这个表里添加 _VERSION 和 _AUTHOR 字段
     lua_pushstring(L, "_VERSION");
     lua_pushstring(L, "LXCSample 1.0.0");
     lua_settable(L, -3);
